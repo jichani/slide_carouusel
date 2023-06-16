@@ -1,0 +1,74 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+.slide_wrapper {
+	position: relative;
+	width: 880px;
+	height: 160px;
+	overflow: hidden;
+}
+
+.slides {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.slides.animated {
+	transition: 0.5s ease-out;
+}
+
+.slides li,
+.slides img {
+	width: 160px;
+	height: 160px;
+	background: #ccc;
+	float: left;
+	border-radius: 50%;
+}
+
+.slides li:not(:last-child),
+.slides img:not(:last-child) {
+	margin-right: 20px;
+}
+
+.controls {
+	margin-top: 50px;
+	cursor: pointer;
+}
+
+.controls span {
+	background: #333;
+	color: #fff;
+	padding: 10px 20px;
+	margin: 0 10px;
+}
+
+/*  */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.inner {
+	width: 600px;
+
+}
+
+.inner img {
+	width: 100%;
+	border-radius: 20px;
+	margin: 20px;
+}
+
+.slides img {
+	cursor: pointer;
+}
