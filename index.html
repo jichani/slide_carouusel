@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>BASE - multiple slide loop</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
 
-  <body>
-    <!-- <div class="button">
+<head>
+	<meta charset="UTF-8">
+	<title>BASE - multiple slide loop</title>
+	<link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+	<!-- 캐러셀 -->
+	<div style="overflow: hidden;">
+		<div class="container">
+			<div class="inner">
+				<img src="./img/바데풀.jpg" alt="바데풀" />
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="button">
 		<img src="./img/바데풀.jpg" alt="바데풀" />
 		<img src="./img/어린이풀.jpg" alt="어린이풀" />
 		<img src="./img/닥터피쉬전신탕.jpg" alt="닥터피쉬전신탕" />
@@ -15,45 +26,34 @@
 		<img src="./img/키즈풀.jpg" alt="키즈풀" />
 	</div> -->
 
-    <!-- partial:index.partial.html -->
-    <div class="wrap">
-      <!-- 캐러셀 -->
-      <div style="overflow: hidden">
-        <div class="container">
-          <div class="inner">
-            <img src="./img/바데풀.jpg" alt="바데풀" />
-          </div>
-        </div>
-      </div>
 
-      <div class="slide_wrapper">
-        <ul class="slides">
-          <img src="./img/new/Amazone.jpg" alt="Amazone" />
-          <img src="./img/new/Beach_Bed.jpg" alt="Beach_Bed" />
-          <img src="./img/new/Boomerang.jpg" alt="Boomerang" />
-          <img src="./img/new/Diving_Pool.jpg" alt="Diving_Pool" />
-          <img src="./img/new/Dragon_Slide.jpg" alt="Dragon_Slide" />
-          <img src="./img/new/Farmstay.jpg" alt="Farmstay" />
-          <img src="./img/new/Gold_Coast.jpg" alt="Gold_Coast" />
-          <img src="./img/new/Jungle_Aqua.jpg" alt="Jungle_Aqua" />
-          <img src="./img/new/Open-air_Bath.jpg" alt="Open-air_Bath" />
-          <img src="./img/new/Speed_Slide.jpg" alt="Speed_Slide" />
-          <img src="./img/new/Super_Bowl.jpg" alt="Super_Bowl" />
-          <img src="./img/new/Tent.jpg" alt="Tent" />
-        </ul>
-      </div>
+	<!-- partial:index.partial.html -->
+	<div class="slide_wrapper">
+		<ul class="slides">
+			<img src="./img/new/Amazone.jpg" alt="Amazone" />
+			<img src="./img/new/Beach_Bed.jpg" alt="Beach_Bed" />
+			<img src="./img/new/Boomerang.jpg" alt="Boomerang" />
+			<img src="./img/new/Diving_Pool.jpg" alt="Diving_Pool" />
+			<img src="./img/new/Dragon_Slide.jpg" alt="Dragon_Slide" />
+			<img src="./img/new/Farmstay.jpg" alt="Farmstay" />
+			<img src="./img/new/Gold_Coast.jpg" alt="Gold_Coast" />
+			<img src="./img/new/Jungle_Aqua.jpg" alt="Jungle_Aqua" />
+			<img src="./img/new/Open-air_Bath.jpg" alt="Open-air_Bath" />
+			<img src="./img/new/Speed_Slide.jpg" alt="Speed_Slide" />
+			<img src="./img/new/Super_Bowl.jpg" alt="Super_Bowl" />
+			<img src="./img/new/Tent.jpg" alt="Tent" />
+		</ul>
 
-      <p class="controls">
-        <i class="fa-solid fa-angle-left prev"></i>
-        <i class="fa-solid fa-angle-right next"></i>
-      </p>
-    </div>
+	</div>
+	<p class="controls">
+		<span class="prev">prev</span>
+		<span class="next">next</span>
+	</p>
 
-    <!-- partial -->
-    <script
-      src="https://kit.fontawesome.com/a5bbbba078.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./script.js"></script>
-  </body>
+
+	<!-- partial -->
+	<script src="./script.js"></script>
+
+</body>
+
 </html>
