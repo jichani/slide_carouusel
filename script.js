@@ -1,9 +1,9 @@
 let slides = document.querySelector(".slides"),
-  slide = document.querySelectorAll(".slides img"),
+  slide = document.querySelectorAll(".slides div"),
   currentIdx = 0,
   slideCount = slide.length,
-  slideWidth = 160,
-  slideMargin = 20,
+  slideWidth = 200,
+  slideMargin = 30,
   prevBtn = document.querySelector(".prev"),
   nextBtn = document.querySelector(".next");
 
@@ -35,7 +35,7 @@ function makeClone() {
 }
 
 function updateWidth() {
-  let currentSlides = document.querySelectorAll(".slides img");
+  let currentSlides = document.querySelectorAll(".slides div");
   let newSlideCount = currentSlides.length;
 
   let newWidth =
@@ -59,7 +59,7 @@ prevBtn.addEventListener("click", function () {
 function moveSlide(num) {
   slides.style.left = -num * (slideWidth + slideMargin) + "px";
   currentIdx = num;
-  console.log(currentIdx, slideCount);
+  // console.log(currentIdx, slideCount);
 
   if (currentIdx == slideCount || currentIdx == -slideCount) {
     setTimeout(function () {
@@ -75,17 +75,20 @@ function moveSlide(num) {
 
 // 이미지 선택 시 이미지 변경
 
-const buttons = document.querySelectorAll(".slides img");
+const buttons = document.querySelectorAll(".slides div img");
+// console.dir(buttons);
 
 function buttonClickHandler() {
   // console.log(this.alt);
   let inner = document.querySelector(".inner img");
-  inner.src = `./img/new/${this.alt}.jpg`;
+  inner.src = `./img/${this.alt}.jpg`;
 }
 
 buttons.forEach((button) => {
   button.addEventListener("click", buttonClickHandler);
 });
+
+
 
 // 무한 반복 (loop)
 // clearInterval(timer);
@@ -96,7 +99,16 @@ function autoSlide() {
   if (timer == undefined) {
     timer = setInterval(function () {
       moveSlide(currentIdx + 1);
-    }, 2000);
+      // 여기에 집어넣기
+      let inner = document.querySelector(".inner img");
+      // console.log(currentIdx);
+      // 바껴야 하는 값은 div가 2부터 시작이므로 1을 더해주어야 한다.
+      let currentImg = document.querySelector(`.slides div:nth-child(${currentIdx + 1}) img`)
+
+      // console.dir(currentImg);
+      inner.src = `./img/${currentImg.alt}.jpg`;
+
+    }, 3000);
   }
 }
 
@@ -114,3 +126,9 @@ slides.addEventListener("mouseenter", function () {
 slides.addEventListener("mouseleave", function () {
   autoSlide();
 });
+
+// 클릭했을 때 멈추게 하는 코드
+// slides.addEventListener("click", function () {
+//   autoSlide();
+//   console.log(`111`)
+// });

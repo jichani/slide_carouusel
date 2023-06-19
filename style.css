@@ -18,14 +18,13 @@ li {
 .wrap {
   width: 70%;
   margin: 0 auto;
-  padding: 30px;
 }
 
 .slide_wrapper {
   position: relative;
   margin: 0 auto;
-  width: 880px;
-  height: 160px;
+  width: 1120px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -33,24 +32,38 @@ li {
   position: absolute;
   left: 0;
   top: 0;
+  text-align: center;
 }
 
 .slides.animated {
   transition: 0.5s ease-out;
 }
 
-.slides li,
-.slides img {
-  width: 160px;
-  height: 160px;
-  background: #ccc;
+.slides div {
+  width: 200px;
+  height: 300px;
+  /* background: #ccc; */
   float: left;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
-.slides li:not(:last-child),
-.slides img:not(:last-child) {
-  margin-right: 20px;
+.slides div:not(:last-child) {
+  margin-right: 30px;
+}
+
+.slides div p {
+  margin-top: 10px;
+}
+
+.slides div p:nth-child(2) {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.slides img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .controls i:nth-child(1) {
@@ -103,9 +116,6 @@ li {
 }
 
 /* 1920 기준 1vw = 19.2px */
-
-
-
 .container_text p:nth-child(4) {
   margin-bottom: 16px;
 }
