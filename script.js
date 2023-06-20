@@ -2,8 +2,8 @@ let slides = document.querySelector(".slides"),
   slide = document.querySelectorAll(".slides div"),
   currentIdx = 0,
   slideCount = slide.length,
-  slideWidth = 200,
-  slideMargin = 30,
+  slideWidth = 10.4166,
+  slideMargin = 1.5625,
   prevBtn = document.querySelector(".prev"),
   nextBtn = document.querySelector(".next");
 
@@ -39,14 +39,14 @@ function updateWidth() {
   let newSlideCount = currentSlides.length;
 
   let newWidth =
-    (slideWidth + slideMargin) * newSlideCount - slideMargin + "px";
+    (slideWidth + slideMargin) * newSlideCount - slideMargin + "vw";
   slides.style.width = newWidth;
 }
 
 function setInitialPosition() {
   let initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
   // slides { transform:translateX(-1000px);}
-  slides.style.transform = `translateX(${initialTranslateValue}px)`;
+  slides.style.transform = `translateX(${initialTranslateValue}vw)`;
 }
 
 nextBtn.addEventListener("click", function () {
@@ -57,7 +57,7 @@ prevBtn.addEventListener("click", function () {
 });
 
 function moveSlide(num) {
-  slides.style.left = -num * (slideWidth + slideMargin) + "px";
+  slides.style.left = -num * (slideWidth + slideMargin) + "vw";
   currentIdx = num;
   // console.log(currentIdx, slideCount);
 
@@ -127,8 +127,12 @@ slides.addEventListener("mouseleave", function () {
   autoSlide();
 });
 
-// 클릭했을 때 멈추게 하는 코드
-// slides.addEventListener("click", function () {
-//   autoSlide();
-//   console.log(`111`)
-// });
+// 사이즈 조정 시 빠르게 움직이는 것을 제한하기 위한 코드
+window.addEventListener('resize', function () {
+  setTimeout(function () {
+    slides.classList.remove("animated");
+  }, 50);
+  setTimeout(function () {
+    slides.classList.add("animated");
+  }, 500);
+})
