@@ -3,20 +3,17 @@ let $slides = document.querySelector(".slides"),
   $prevBtn = document.querySelector(".prev"),
   $nextBtn = document.querySelector(".next"),
   $inner = document.querySelector(".inner img"),
+  $$buttons = document.querySelectorAll(".slides div img"),
   currentIdx = 0,
   slideCount = $$slide.length,
   slideWidth = 10.4166,
   slideMargin = 1.5625,
   timer = undefined;
 
-
-makeClone();
-
 function makeClone() {
   // slides li 뒤 쪽에 자식들을 추가해줌
   // 첫 번째 for 루프에서 let i = 0 대신 let i = slideCount; i--으로 변경하여 배열을 역순으로 탐색하는 것이 가독성에 좋습니다.
   for (let i = 0; i < slideCount; i++) {
-    // a.cloneNode(), a.cloneNode(true);
     let clonedSlide = $$slide[i].cloneNode(true);
     clonedSlide.classList.add("clone");
     // a.appendchild(b);
@@ -24,7 +21,6 @@ function makeClone() {
   }
   // slides li 앞 쪽에 자식들을 추가해줌
   for (let i = slideCount - 1; i >= 0; i--) {
-    // a.cloneNode(), a.cloneNode(true);
     let clonedSlide = $$slide[i].cloneNode(true);
     clonedSlide.classList.add("clone");
     // a.prepend(b);
@@ -71,17 +67,19 @@ function moveSlide(num) {
 }
 
 // 이미지 선택 시 이미지 변경
-const $$buttons = document.querySelectorAll(".slides div img");
-// console.dir(buttons);
-
+// 이미지의 소스(src)를 변경하는 방식은 이미지를 프리로드하지 않으므로 부드러운 이미지 변경을 위해 추가적인 로딩 시간이 필요합니다. 이미지를 프리로드하고 src 속성을 변경하는 것이 좋습니다. 
 function buttonClickHandler() {
-  // console.log(this.alt);
-  $inner.src = `./img/${this.alt}.jpg`;
-}
+  let imageUrl = `./img/${this.alt}.jpg`;
 
-$$buttons.forEach((button) => {
-  button.addEventListener("click", buttonClickHandler);
-});
+  // 이미지 프리로드를 위한 Image 객체 생성
+  let image = new Image();
+  image.src = imageUrl;
+
+  // 이미지 로드가 완료되었을 때의 동작 정의
+  image.addEventListener("load", function () {
+    $inner.src = imageUrl;
+  });
+}
 
 // 무한 반복 (loop)
 // clearInterval(timer);
@@ -91,7 +89,6 @@ function autoSlide() {
       moveSlide(currentIdx + 1);
       // 여기에 집어넣기
       updateCurrentSlideImage();
-
     }, 3000);
   }
 }
@@ -114,17 +111,10 @@ function changeSlide() {
   updateCurrentSlideImage();
 }
 
-autoSlide();
-
 function stopSlide() {
   clearInterval(timer);
   timer = undefined;
 }
-
-$slides.addEventListener("mouseenter", handleSlideInteraction);
-$slides.addEventListener("mouseleave", handleSlideInteraction);
-$nextBtn.addEventListener("click", handleSlideNavigation);
-$prevBtn.addEventListener("click", handleSlideNavigation);
 
 function handleSlideInteraction() {
   if (event.type === "mouseenter") {
@@ -143,6 +133,21 @@ function handleSlideNavigation() {
   }
   changeSlide();
 }
+
+// 함수 호출 및 이벤트 등록
+
+makeClone();
+
+$$buttons.forEach((button) => {
+  button.addEventListener("click", buttonClickHandler);
+});
+
+autoSlide();
+
+$slides.addEventListener("mouseenter", handleSlideInteraction);
+$slides.addEventListener("mouseleave", handleSlideInteraction);
+$nextBtn.addEventListener("click", handleSlideNavigation);
+$prevBtn.addEventListener("click", handleSlideNavigation);
 
 // 사이즈 조정 시 빠르게 움직이는 것을 제한하기 위한 코드
 window.addEventListener('resize', function () {
