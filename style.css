@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
+/* 초기화 */
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +8,32 @@
 li {
   list-style: none;
 }
+
+/* 공통 부분 */
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  /* color */
+  --color-blue: #0B39A2;
+
+  /* size */
+  --base-space: 8px;
+  --size-button: 60px;
+  --size-bolder: 4px;
+  --size-thumbnail: 50px;
+  --font-size: 18px;
+
+  /* animation */
+  --animation-duration: 300ms;
+}
+
+/*  */
 
 .wrap {
   width: 58.3333vw;
@@ -72,7 +92,7 @@ li {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 /* 1920 기준 1vw = 19.2px */
@@ -85,26 +105,27 @@ li {
   padding-left: 10px;
 }
 
+.container_text div {
+  display: flex;
+}
+
+.container_text div p {
+  font-size: 2.3vw;
+  text-align: right;
+  font-weight: 600;
+  margin-left: 16px;
+}
+
+.container_text div p:nth-child(2) {
+  color: #0B39A2;
+}
+
 .container_text p {
   font-size: 0.83333vw;
   text-align: right;
 }
 
-
-.container_text p:nth-child(1) {
-  font-size: 3.125vw;
-  text-align: right;
-  font-weight: 600;
-}
-
-.container_text p:nth-child(2) {
-  font-size: 3.125vw;
-  text-align: right;
-  font-weight: 600;
-  margin-bottom: 26px;
-}
-
-.container_text p:nth-child(4) {
+.container_text p:nth-child(3) {
   margin-bottom: 16px;
 }
 
