@@ -3,7 +3,6 @@ let $slides = document.querySelector(".slides"),
   $prevBtn = document.querySelector(".prev"),
   $nextBtn = document.querySelector(".next"),
   $inner = document.querySelector(".inner img"),
-  $$buttons = document.querySelectorAll(".slides div img"),
   currentIdx = 0,
   slideCount = $$slide.length,
   timer = undefined,
@@ -67,21 +66,6 @@ function moveSlide(num) {
   }
 }
 
-// 이미지 선택 시 이미지 변경
-// 이미지의 소스(src)를 변경하는 방식은 이미지를 프리로드하지 않으므로 부드러운 이미지 변경을 위해 추가적인 로딩 시간이 필요합니다. 이미지를 프리로드하고 src 속성을 변경하는 것이 좋습니다. 
-function buttonClickHandler() {
-  let imageUrl = `./img/${this.alt}.jpg`;
-
-  // 이미지 프리로드를 위한 Image 객체 생성
-  let image = new Image();
-  image.src = imageUrl;
-
-  // 이미지 로드가 완료되었을 때의 동작 정의
-  image.addEventListener("load", function () {
-    $inner.src = imageUrl;
-  });
-}
-
 // 무한 반복 (loop)
 // clearInterval(timer);
 function autoSlide() {
@@ -139,10 +123,6 @@ function handleSlideNavigation() {
 
 makeClone();
 
-$$buttons.forEach((button) => {
-  button.addEventListener("click", buttonClickHandler);
-});
-
 autoSlide();
 
 $slides.addEventListener("mouseenter", handleSlideInteraction);
@@ -159,3 +139,14 @@ window.addEventListener('resize', function () {
     $slides.classList.add("animated");
   }, 500);
 })
+
+// 이미지 클릭했을 때 변하게 하기 위해서
+function buttonClickHandler() {
+  $inner.src = `./img/${this.alt}.jpg`;
+}
+
+let $$buttons = document.querySelectorAll(".slides div img")
+
+$$buttons.forEach((button) => {
+  button.addEventListener("click", buttonClickHandler);
+});
