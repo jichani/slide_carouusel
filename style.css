@@ -20,7 +20,7 @@ li {
 
 :root {
   /* color */
-  --color-blue: #0B39A2;
+  --color-blue: #1852d8;
 
   /* size */
   --base-space: 8px;
@@ -117,7 +117,7 @@ li {
 }
 
 .container_text div p:nth-child(2) {
-  color: #0B39A2;
+  color: var(--color-blue);
 }
 
 .container_text p {
