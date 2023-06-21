@@ -18,6 +18,10 @@
   /* font-size */
 }
 
+html {
+  font-size: 0.83333vw;
+}
+
 /* 초기화 */
 * {
   margin: 0;
@@ -50,21 +54,17 @@ li {
   justify-content: center;
 
   /* padding-left: 0.625em; */
-  margin-right: 0.625em;
+  margin-right: 0.625rem;
 }
 
 .container_text div.container_text_main {
-  display: flex;
-}
-
-.container_text div.container_text_main p {
-  font-size: 3.438em;
+  font-size: 3.125rem;
   text-align: right;
   font-weight: 600;
-  margin-left: 0.2em;
+  margin-bottom: 1.25rem;
 }
 
-.container_text div p:nth-child(2) {
+.container_text div .blue_color {
   color: var(--color-blue);
 }
 
@@ -73,7 +73,7 @@ li {
 }
 
 .container_text p:nth-child(3) {
-  margin-bottom: 16px;
+  margin-bottom: 1.25em;
 }
 
 /* inner img */
