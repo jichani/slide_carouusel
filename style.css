@@ -1,14 +1,3 @@
-/* 초기화 */
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'Pretendard-Regular';
-}
-
-li {
-  list-style: none;
-}
-
 /* 공통 부분 */
 
 @font-face {
@@ -23,14 +12,21 @@ li {
   --color-blue: #1852d8;
 
   /* size */
-  --base-space: 8px;
-  --size-button: 60px;
-  --size-bolder: 4px;
-  --size-thumbnail: 50px;
-  --font-size: 18px;
+  --slide-width: 10.4166vw;
+  --slide-margin: 1.5625vw;
 
-  /* animation */
-  --animation-duration: 300ms;
+  /* font-size */
+}
+
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard-Regular';
+}
+
+li {
+  list-style: none;
 }
 
 /*  */
@@ -60,7 +56,7 @@ li {
 }
 
 .slides div {
-  width: 10.4166vw;
+  width: var(--slide-width);
   height: 15.625vw;
   /* background: #ccc; */
   float: left;
@@ -68,7 +64,7 @@ li {
 }
 
 .slides div:not(:last-child) {
-  margin-right: 1.5625vw;
+  margin-right: var(--slide-margin);
 }
 
 .slides div p {
@@ -85,8 +81,8 @@ li {
 }
 
 .slides img {
-  width: 10.4166vw;
-  height: 10.4166vw;
+  width: var(--slide-width);
+  height: var(--slide-width);
   border-radius: 50%;
 }
 

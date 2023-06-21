@@ -6,9 +6,10 @@ let $slides = document.querySelector(".slides"),
   $$buttons = document.querySelectorAll(".slides div img"),
   currentIdx = 0,
   slideCount = $$slide.length,
+  timer = undefined,
+
   slideWidth = 10.4166,
-  slideMargin = 1.5625,
-  timer = undefined;
+  slideMargin = 1.5625;
 
 function makeClone() {
   // slides li 뒤 쪽에 자식들을 추가해줌
